@@ -28,12 +28,8 @@ github_username:  jekyll
 # Collections
 collections:
   recipe:
-    title:
-    source:
-    layout: recipe  
     output: true
-    permalink: /:collection/:title
-
+    permalink: /:name/
 
 # Build settings
 markdown: kramdown

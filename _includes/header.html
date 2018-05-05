@@ -4,10 +4,38 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ page.title }}</title>
+
+    {% if page.title == "Slime Recipe" %}
+    <title>Slime Recipes & Guides for Kids | SlimeRecipe.com</title>
+    {% elsif page.layout == "recipe" %}
+    <title>{{ page.title }} Recipe | How to Make {{ page.title }}</title>
+    {% endif %}
+
+    {% assign pagecontent_description = page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 160 %}
+    <meta name="description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
+
+       <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="{{ page.title }}"/>
+  {% if page.image %}<meta property="og:image" content="{{ site.url }}{{ page.image }}"/>{% endif %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{ site.title }}"/>
+  <meta property="og:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}"/>
   
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@{{ site.twitter_url }}">
+  <meta name="twitter:title" content="{{ page.title }}" />
+  {% if page.image %}<meta name="twitter:image" content="{{ site.url }}{{ page.image }}" />{% endif %}
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+  <meta name="twitter:description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}" />
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | prepend: site.baseurl | prepend: site.url }}" />  
+
     <!-- Favicon
     ============ -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png" />
@@ -29,6 +57,10 @@
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"  />
     <link rel="stylesheet" type="text/css" href="/css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+
+    <!--Fonts
+    ============== -->
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
   
     <!-- Modernizr file
     =================== -->

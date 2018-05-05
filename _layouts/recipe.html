@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <!-- Header
+<!-- Header
   ================== -->
-  {% include header.html %}
-  {% assign recipe = site.data.recipe[page.title] %}  
+{% include header.html %}
 
 <body>
+
+  <!-- Recipe Schema
+  ================== -->
+  {% include recipe-schema.html %}
 
   <!-- Splash Screen
   ================== -->
@@ -17,10 +20,17 @@
   <section id="recipe">
     <div class="container">
       <div class="row">
+
         <!-- Title -->
         <div class="col-12">
-          <h2>{{ page.title }} Recipe</h2>
-          <p>How to make {{ page.title }}</p>
+
+          <!-- Breadcrumbs
+          ================== -->
+
+          {% include breadcrumb.html %}
+
+          <h2>How to make {{ page.title }}</h2>
+          <p>Want to learn how to make {{ page.title }}? We put together our favorite recipe, it takes about {{ page.time }}, makes enough slime for {{ page.servings }} and only needs {{  page.ingredients.size }} ingredients!</p>
         </div>
       </div>
       <div class="row vertical-align">
@@ -32,7 +42,7 @@
           <!-- Info -->
           <div class="col-md-4 pull-right wow lightSpeedIn">
             <div class="recipe-info">
-              <h3>Info</h3>
+              <h3>Cooking Info</h3>
               <!-- Time -->
               <div class="row">
                 <div class="col-2 text-center">
@@ -48,9 +58,27 @@
                 </div>
                 <div class="col-6">Difficulty</div>
                 <div class="col-4">
+                  {% if page.difficulty == 1 %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  {% elsif page.difficulty == 2 %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  {% elsif page.difficulty == 3 %}
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
                   <i class="fa fa-star" aria-hidden="true"></i>
+                  {% elsif page.difficulty == 4 %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  {% elsif page.difficulty == 5 %}
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  {% endif %}
                 </div>
               </div>
               <!-- Serves -->
@@ -59,8 +87,18 @@
                   <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
                 <div class="col-6">Servings</div>
-                <div class="col-4">5</div>
+                <div class="col-4">{{ page.servings }}</div>
               </div>
+              <h3>Materials</h3>
+              {% for r in page.materials %}
+              <div class="row">
+                  <div class="col-2 text-center">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-2">{{ r.quantity}}</div>
+                  <div class="col-8">{{ r.item }}</div>
+                </div>
+                {% endfor %}
             </div>
           </div>
         </div>
@@ -71,11 +109,11 @@
           <div class="recipe-ingredients">
             <h3>Ingredients</h3>
             <dl class="ingredients-list">
-              <dt>10</dt> <dd>country-style pork ribs</dd>
-              <dt>2</dt> <dd>tablespoons garlic powder</dd>
-              <dt>1</dt> <dd>tablespoon salt</dd>
-              <dt>1</dt> <dd>tablespoon pepper</dd>
-              <dt>2</dt> <dd>cups of your favorite barbecue sauce</dd>
+              {% for r in page.ingredients %}
+              <dt>{{ r.quantity }}</dt>
+              <dd>{{ r.ingredient }}
+              </dd>
+              {% endfor %}
             </dl>
           </div>
         </div>
@@ -86,23 +124,17 @@
           <div class="recipe-directions">
             <h3>Directions</h3>
             <ol>
-              <li>Preheat oven to 325.</li>
-              <li>Place ribs meaty side up in an ungreased baking dish.</li>
-              <li>Sprinkle with garlic powder, salt, and pepper.</li>
-              <li>Cover with foil and bake for 2 hours.</li>
-              <li>Drain liquid.</li>
-              <li>Brush ribs generously with BBQ sauce.</li>
-              <li>Bake uncovered for an additional 30 minutes in oven or on the BBQ.</li>
-              <li>Add more sauce half-way through.</li>
+              {% for r in page.directions %}
+              <li>{{ r.step }}</li>
+              {% endfor %}
             </ol>
           </div>
         </div>
       </div>
-     <!-- 
+      <!-- 
       {% include /recipe-comment/comments.html %}
            
             {% include /recipe-comment/comment.html %} -->
-            
 
       <!-- Back to recipes -->
       <div class="row wow rollIn">
@@ -112,6 +144,9 @@
             Go to back to Slime recipes.
           </a>
         </div>
+        <div class="col-12 text-center">
+        {% include share-buttons.html %}
+      </div>
       </div>
     </div>
   </section>

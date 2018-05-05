@@ -1,8 +1,9 @@
 ---
 layout: full-width
 title:  About Slime Recipes
+h1: About Slime Recipes
 permalink: /about/
 
 ---
 
-the most bitchin slime post recipe site online!
+Because we LOVE slime!
