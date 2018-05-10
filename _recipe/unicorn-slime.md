@@ -1,32 +1,29 @@
 ---
 layout: recipe
 title:  Unicorn Slime
-image: /images/bbq-pork-ribs.jpg
-permalink: /unicorn-slime/
+image: /images/unicorn-slime.png
 date:   5/1/2018
-artist: "The Tallis Scholars"
-director: "Peter Phillips"
-servings: 2
-time: 5 minutes
-difficulty: 5
+permalink: /unicorn-slime/
+servings: 3
+time: 10 minutes
+difficulty: 2
 directions:
-  - step: Add 8 oz of Elmer's Glitter Glue to a plastic of glass bowl
-  - step: Pour in 1 tbsp of Baking Soda and mix
-  - step: Then, add 2 tbsp of Contact Lens Solution.
-  - step: Finally, Knead the slime with your hands until full mixed and super strechy!
+  - step: Empty 3 bottles of Elmer's Glitter Glue into your plastic or glass bowl
+  - step: Next, pour in 1.5 tablespoons of Arm and Hammer Baking Soda
+  - step: Third, mix in 3 tablespoons of Contact Lens Solution to start making things slimey
+  - step: Keep mixing and kneading your slime until it is done
 ingredients:
-  - ingredient: Elmer's Glitter Glue
-    quantity: 8 oz
-  - ingredient: Baking Soda 
-    quantity: 1 tbsp
+  - ingredient: Elmer's Glitter Glue (Different colors)
+    quantity: 12 oz. (3 normal size bottles)
+  - ingredient: Arm and Hammer Baking Soda
+    quantity: 1.5 Tbsp
   - ingredient: Contact Lens Solution, with Boric Acid
-    quantity: 2 tbsp   
+    quantity: 3 Tbsp
 materials:
-  - item: Spoon
+  - item: Plastic Spoon
     quantity: 1
-  - item: Bowl
+  - item: Large Bowl
     quantity: 1   
-
+  - item: Medium Bowl
+    quantity: 1
 ---
-
-321321321321165165465465654665465
