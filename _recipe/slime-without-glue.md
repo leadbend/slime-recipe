@@ -12,6 +12,7 @@ directions:
   - step: Second, add the hot water and food coloring to a large bowl
   - step: Next, mix in 4 Cups of Cornstarch
   - step: Mix the slime, adding extra Cornstarch if your slime is not thick enough
+  - step: Enjoy 
 ingredients:
   - ingredient: Hot Water
     quantity: 2 Cups
