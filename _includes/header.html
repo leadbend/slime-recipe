@@ -11,6 +11,10 @@
     <title>{{ page.title }} Recipe | How to Make {{ page.title }}</title>
     {% endif %}
 
+    {% if page.noindex %}
+    <META NAME="ROBOTS" CONTENT="noindex,follow"/>
+    {% endif %}
+
     {% assign pagecontent_description = page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 160 %}
     <meta name="description" content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
 
