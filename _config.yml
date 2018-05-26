@@ -20,6 +20,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.slime-recipe.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter: https://twitter.com/GetSlimeRecipe
+twitter_url: GetSlimeRecipe
 pinterest: https://www.pinterest.com/slimerecipecom/
 youtube: https://www.youtube.com/channel/UC16j70nIvn3zqaU3ifY-XuQ
 facebook: https://www.facebook.com/Slime-Recipecom-113962492815755/
